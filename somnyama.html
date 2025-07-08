@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Somnyama - Contemporary Artist Portfolio</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#F5F5F5',secondary:'#8B7355'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+        .hero-bg {
+            background-image: url('https://readdy.ai/api/search-image?query=Contemporary%20abstract%20art%20studio%20with%20dramatic%20lighting%2C%20minimalist%20dark%20interior%20space%2C%20modern%20artistic%20atmosphere%2C%20professional%20photography%2C%20high%20contrast%20shadows%20and%20highlights%2C%20elegant%20composition%2C%20sophisticated%20ambiance%2C%20artistic%20workspace%20with%20easels%20and%20canvases%2C%20moody%20lighting%20setup%2C%20clean%20geometric%20forms%2C%20neutral%20color%20palette%20with%20deep%20blacks%20and%20warm%20whites&width=1920&height=1080&seq=hero001&orientation=landscape');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .artwork-hover {
+            transition: transform 0.3s ease-in-out;
+        }
+        .artwork-hover:hover {
+            transform: scale(1.05);
+        }
+        .menu-slide {
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .menu-slide.active {
+            transform: translateX(0);
+        }
+        .menu-overlay {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+        .fade-in-delay {
+            animation-delay: 0.3s;
+        }
+        .fade-in-delay-2 {
+            animation-delay: 0.6s;
+        }
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .parallax-scroll {
+            transform: translateY(0);
+            transition: transform 0.1s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-primary font-inter overflow-x-hidden">
+    <header class="fixed top-0 left-0 right-0 z-50 p-8">
+        <div class="flex justify-between items-center">
+            <div class="font-playfair text-2xl font-medium tracking-wide">
+                Tshepo "Somnyama" Sethosa
+            </div>
+            <button id="menuToggle" class="w-10 h-10 flex items-center justify-center">
+                <i class="ri-menu-line text-2xl"></i>
+            </button>
+        </div>
+    </header>
+
+    <div id="menuOverlay" class="menu-overlay fixed inset-0 bg-black bg-opacity-50 z-40"></div>
+    
+    <nav id="menuPanel" class="menu-slide fixed top-0 right-0 h-full w-80 bg-gray-800 bg-opacity-95 backdrop-blur-md z-50">
+        <div class="p-8">
+            <button id="menuClose" class="w-10 h-10 flex items-center justify-center ml-auto mb-12">
+                <i class="ri-close-line text-2xl"></i>
+            </button>
+            <ul class="space-y-6">
+                <li><a href="current-works.html" class="html block text-lg font-light hover:text-secondary transition-colors duration-300 py-2 border-b border-transparent hover:border-secondary">Current Works</a></li>
+                <li><a href="studio-paintings.html" class="block text-lg font-light hover:text-secondary transition-colors duration-300 py-2 border-b border-transparent hover:border-secondary">Studio Paintings</a></li>
+                <li><a href="pastels.html" class="block text-lg font-light hover:text-secondary transition-colors duration-300 py-2 border-b border-transparent hover:border-secondary">Pastel</a></li>
+                <li><a href="drawings.html" class="block text-lg font-light hover:text-secondary transition-colors duration-300 py-2 border-b border-transparent hover:border-secondary">Drawings</a></li>
+                <li><a href="portraits.html" class="block text-lg font-light hover:text-secondary transition-colors duration-300 py-2 border-b border-transparent hover:border-secondary">Portraits</a></li>
+                <li><a href="about.html" class="block text-lg font-light hover:text-secondary transition-colors duration-300 py-2 border-b border-transparent hover:border-secondary">About</a></li>
+                <li><a href="contact.html" class="block text-lg font-light hover:text-secondary transition-colors duration-300 py-2 border-b border-transparent hover:border-secondary">Contact</a></li>
+                <li><a href="blog.html" class="block text-lg font-light hover:text-secondary transition-colors duration-300 py-2 border-b border-transparent hover:border-secondary">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-bg min-h-screen flex items-center justify-center relative">
+            <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+            <div class="relative z-10 max-w-6xl mx-auto px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <h1 class="font-playfair text-5xl lg:text-6xl font-medium mb-6 fade-in">
+                        Somnyama<br>
+                        <span class="text-secondary">Arts</span>
+                    </h1>
+                    <p class="text-xl mb-8 font-light leading-relaxed fade-in fade-in-delay">
+                        Tshepo Inganathinkosi Sethosa, known as "Somnyama" is a talented visual artist from South Africa. Living in this dynamic enviroment, Somnyama has explored various neighbourhoods, which has sharpened his awareness of the lack of art in the city. Each area has influenced his artistery, enriching his perspective on life and culture.
+                    </p>
+                    <p class="text-lg font-light leading-relaxed opacity-90 fade-in fade-in-delay-2">
+                        This Art Portfolio is for depict emotions one step at a time, exploring the intersection of modernity and expressions, my visual and contemporary art pieces blend vibrant colors, dynamic textures and thought-provoking themes to capture the essence of our ever-evolving world.
+                    </p>
+                </div>
+                <div class="flex justify-center lg:justify-end">
+                    <div class="artwork-hover">
+                        <img src= "Front man.png"
+                        alt="Abstract Composition #1"
+                        class="w-full h-80 object-cover rounded-lg"
+                      />
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-800">
+            <div class="max-w-7xl mx-auto px-8">
+                <h2 class="font-playfair text-4xl font-medium text-center mb-16">Recent Works</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="artwork-hover">
+                        <img src="sweet nothings.JPG" 
+                             alt="Portrait Composition #1" 
+                             class="w-full h-80 object-cover rounded-lg">
+                        <h3 class="font-playfair text-xl mt-4 mb-2">Abstract Composition #1</h3>
+                        <p class="text-sm opacity-75">Paint on paper, 2024</p>
+                    </div>
+                    <div class="artwork-hover">
+                        <img src="1a916773-3956-4c8d-bf64-bdc508032ff0.jpg" 
+                             alt="Life Study #7" 
+                             class="w-full h-80 object-cover rounded-lg">
+                        <h3 class="font-playfair text-xl mt-4 mb-2">Life Study #7</h3>
+                        <p class="text-sm opacity-75">Charcoal on Paper, 2024</p>
+                    </div>
+                    <div class="artwork-hover">
+                        <img src="Warren Ma se Mula.JPG" 
+                             alt="Painting Series #3" 
+                             class="w-full h-80 object-cover rounded-lg">
+                        <h3 class="font-playfair text-xl mt-4 mb-2">Portrait Series #3</h3>
+                        <p class="text-sm opacity-75">Paint on paper, 2024</p>
+                    </div>
+                    <div class="artwork-hover">
+                        <img src="Greenery.jpg" 
+                             alt="Mixed Media Exploration" 
+                             class="w-full h-80 object-cover rounded-lg">
+                        <h3 class="font-playfair text-xl mt-4 mb-2">Shades of Green Media Exploration</h3>
+                        <p class="text-sm opacity-75">Green Pencils, 2023</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="py-20 bg-gray-900">
+            <div class="max-w-4xl mx-auto px-8 text-center">
+                <h2 class="font-playfair text-4xl font-medium mb-8">Artist Statement</h2>
+                <p class="text-lg leading-relaxed mb-8 opacity-90">
+                    My story as an artist began when i was 4 years. Just like every boy at that age, I would often draw cars. As time went by i took a liking to drawing faces and cartoons because my older brother would always come back home with drawings he had made at school and I'd try and copy them. They always seemed to amaze me. When I was 15 I started taking art seriously and began trying defferent styles and mediums. I find so much joy in being relatable to my audience through my work. This connection drives me to work harder and search deeper within myself to create something true to myself that can connect to my audeince.
+                </p>
+                <p class="text-lg leading-relaxed opacity-90">
+                    Through my curent art practice, the subject matter that intrigues me most is the fear and discomfort I see in people who are not at ease with themselves, with who they are; and their fear of becoming who they truly are.
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <script id="menuToggle">
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const menuClose = document.getElementById('menuClose');
+            const menuPanel = document.getElementById('menuPanel');
+            const menuOverlay = document.getElementById('menuOverlay');
+            function openMenu() {
+                menuPanel.classList.add('active');
+                menuOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeMenu() {
+                menuPanel.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+
+            menuToggle.addEventListener('click', openMenu);
+            menuClose.addEventListener('click', closeMenu);
+            menuOverlay.addEventListener('click', closeMenu);
+        });
+    </script>
+
+    <script id="parallaxEffect">
+        document.addEventListener('DOMContentLoaded', function() {
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const parallaxElements = document.querySelectorAll('.parallax-scroll');
+                
+                parallaxElements.forEach(element => {
+                    const speed = 0.5;
+                    element.style.transform = `translateY(${scrolled * speed}px)`;
+                });
+            });
+        });
+    </script>
+
+    <script id="smoothScroll">
+        document.addEventListener('DOMContentLoaded', function() {
+            document.documentElement.style.scrollBehavior = 'smooth';
+        });
+    </script>
+    &copy; 2025 Somnyama. All rights reserved.
+</body>
+</html>
